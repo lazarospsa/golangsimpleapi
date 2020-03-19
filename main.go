@@ -1,5 +1,5 @@
 package main
-
+//import ta paketa
 import (
 	"database/sql"
 	"encoding/json"
@@ -10,10 +10,10 @@ import (
 	"github.com/go-chi/chi/middleware"
 	_ "github.com/go-sql-driver/mysql"
 )
-
+//dimiourgw to router kai thn db mou
 var router *chi.Mux
 var db *sql.DB
-
+//dhmiourgw kapoies sta9eres times
 const (
 	dbName = "simpleapi"
 	dbPass = ""
@@ -39,7 +39,7 @@ func init() {
 	db, err = sql.Open("mysql", dbSource)
 	catch(err)
 }
-
+// dhmiourgw ta endpoints mou
 func routers() *chi.Mux {
 	router.Get("/", ping)
 
@@ -149,7 +149,7 @@ func DeletePost(w http.ResponseWriter, r *http.Request) {
 
 	respondwithJSON(w, http.StatusOK, map[string]string{"message": "successfully deleted"})
 }
-
+//main function tou programmatos
 func main() {
 	port := ":8000"
 	fmt.Printf("Service started on localhost%s\n", port)
